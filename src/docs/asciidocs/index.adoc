@@ -1,0 +1,142 @@
+CRM Bedu
+Table of Contents
+Resumen
+1. Verbos HTTP
+2. Clientes
+2.1. Get cliente por Id
+2.1.1. Ejemplo de petición
+2.1.2. Ejemplo de respuesta
+2.1.3. Ejemplo usando CURL
+2.1.4. Parámetros de la petición
+2.2. Get clientes
+2.2.1. Ejemplo de petición
+2.2.2. Ejemplo de respuesta
+2.2.3. Ejemplo usando CURL
+2.3. POST nuevo cliente
+2.3.1. Ejemplo de petición
+2.3.2. Ejemplo de respuesta
+2.3.3. Ejemplo usando CURL
+2.4. PUT cliente
+2.4.1. Ejemplo de petición
+2.4.2. Parámetros de la petición
+2.4.3. Ejemplo de respuesta
+2.4.4. Ejemplo usando CURL
+2.5. DELETE cliente por Id
+2.5.1. Ejemplo de petición
+2.5.2. Ejemplo de respuesta
+2.5.3. Parámetros de la petición
+2.5.4. Ejemplo usando CURL
+Resumen
+Este curso muestra el desarrollo de un API usando Spring Framework, con sus módulos Spring Boot, Spring Data JPA y Spring REST Docs.
+1. Verbos HTTP
+Este curso trate de adherirse lo más posible al estándar RESTful aprovechando las capacidades del protocolo de HTTP y siguiendo las convenciones HTTP en su uso de los verbos HTTP.
+
+Verbo	Uso
+GET
+
+Recuperar un recurso
+
+POST
+
+Crea un nuevo recurso
+
+PUT
+
+Actualizar un recurso existente, incluyendo actualizaciones parciales
+
+DELETE
+
+Eliminar un recurso existente
+
+Este curso trate de adherirse lo más posible al estándar RESTful en el uso de los códigos de estátus HTTP.
+
+Code	uso
+200 OK
+
+La petición se completó exitosamente
+
+201 Created
+
+Se creó un nuevo recurso. La URL del reurso está disponible en la cabecera Location de la respuesta
+
+204 No Content
+
+Se aplicó correctamente la actualización de un recurso
+
+400 Bad Request
+
+La petición está formada de forma incorrecta. El cuerpo de la respuesta incluirá el error, proporcionando más información
+
+404 Not Found
+
+El recurso especificado no existe
+
+2. Clientes
+2.1. Get cliente por Id
+Obtiene un cliente específico usando su identificador único.
+
+2.1.1. Ejemplo de petición
+{snippets}/cliente/get-cliente/http-request.adoc
+
+2.1.2. Ejemplo de respuesta
+{snippets}/cliente/get-cliente/http-response.adoc
+
+2.1.3. Ejemplo usando CURL
+{snippets}/cliente/get-cliente/curl-request.adoc
+
+2.1.4. Parámetros de la petición
+{snippets}/cliente/get-cliente/path-parameters.adoc
+
+2.2. Get clientes
+Obtiene todos los clientes.
+
+2.2.1. Ejemplo de petición
+{snippets}/cliente/get-clientes/http-request.adoc
+
+2.2.2. Ejemplo de respuesta
+{snippets}/cliente/get-clientes/http-response.adoc
+
+2.2.3. Ejemplo usando CURL
+{snippets}/cliente/get-clientes/curl-request.adoc
+
+2.3. POST nuevo cliente
+Crea un nuevo cliente
+
+2.3.1. Ejemplo de petición
+{snippets}/cliente/post-cliente/http-request.adoc
+
+2.3.2. Ejemplo de respuesta
+{snippets}/cliente/post-cliente/http-response.adoc
+
+2.3.3. Ejemplo usando CURL
+{snippets}/cliente/post-cliente/curl-request.adoc
+
+2.4. PUT cliente
+Actualiza un cliente existente.
+
+2.4.1. Ejemplo de petición
+{snippets}/cliente/put-cliente/http-request.adoc
+
+2.4.2. Parámetros de la petición
+{snippets}/cliente/put-cliente/path-parameters.adoc
+
+2.4.3. Ejemplo de respuesta
+{snippets}/cliente/put-cliente/http-response.adoc
+
+2.4.4. Ejemplo usando CURL
+{snippets}/cliente/put-cliente/curl-request.adoc
+
+2.5. DELETE cliente por Id
+Elimina un cliente específico usando su identificador único.
+
+2.5.1. Ejemplo de petición
+{snippets}/cliente/delete-cliente/http-request.adoc
+
+2.5.2. Ejemplo de respuesta
+{snippets}/cliente/delete-cliente/http-response.adoc
+
+2.5.3. Parámetros de la petición
+{snippets}/cliente/delete-cliente/path-parameters.adoc
+
+2.5.4. Ejemplo usando CURL
+{snippets}/cliente/delete-cliente/curl-request.adoc
