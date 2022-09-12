@@ -10,13 +10,13 @@ import javax.validation.constraints.Pattern;
 import javax.validation.constraints.PositiveOrZero;
 import javax.validation.constraints.Size;
 
-
+import lombok.Builder;
 import lombok.Data;
-import lombok.RequiredArgsConstructor;
+
 
 
 @Data
-@RequiredArgsConstructor
+@Builder
 public class Producto {
 
     @PositiveOrZero(message = "No negative numbers")
@@ -37,6 +37,23 @@ public class Producto {
     
     @PastOrPresent(message = "The date can't be a future date")
     private LocalDate fechaCreacion;
+
+    public Producto() {
+    }
+
+    public Producto(@PositiveOrZero(message = "No negative numbers") long id,
+            @NotBlank(message = "Need information") @Size(min = 4, max = 30) String nombre, String categoria,
+            @DecimalMin(value = "1.00", inclusive = true, message = "Min price is 1.00") float precio,
+            @NotEmpty @Pattern(regexp = "^(\\d{3}[-]?){2}\\d{4}$") String numeroRegistro,
+            @PastOrPresent(message = "The date can't be a future date") LocalDate fechaCreacion) {
+        this.id = id;
+        this.nombre = nombre;
+        this.categoria = categoria;
+        this.precio = precio;
+        this.numeroRegistro = numeroRegistro;
+        this.fechaCreacion = fechaCreacion;
+    }
+    
     
 
 }

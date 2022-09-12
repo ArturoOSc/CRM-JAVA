@@ -2,7 +2,7 @@ package org.bedu.crmbedu.controllers;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import org.bedu.crmbedu.model.Cliente;
+import org.bedu.crmbedu.model.ClienteClass;
 import org.bedu.crmbedu.services.ClienteService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -46,7 +46,7 @@ class ClienteControllerTest {
 
     @Test
     void getCliente() throws Exception {
-        given(clienteService.obtenCliente(anyLong())).willReturn(Optional.of(Cliente.builder().id(1L).nombre("Nombre").correoContacto("cliente@contacto.com").build()));
+        given(clienteService.obtenCliente(anyLong())).willReturn(Optional.of(ClienteClass.builder().id(1L).nombre("Nombre").correoContacto("cliente@contacto.com").build()));
 
         mockMvc.perform(get("/cliente/{clienteId}", 1)
                 .content(MediaType.APPLICATION_JSON_VALUE))
@@ -72,10 +72,10 @@ class ClienteControllerTest {
     @Test
     void getClientes() throws Exception {
 
-        List<Cliente> clientes = Arrays.asList(
-                Cliente.builder().id(1L).nombre("Nombre 1").direccion("Direccion 1").numeroEmpleados(10).correoContacto("contacto@cliente1.com").build(),
-                Cliente.builder().id(2L).nombre("Nombre 2").direccion("Direccion 2").numeroEmpleados(10).correoContacto("contacto@cliente2.com").build(),
-                Cliente.builder().id(3L).nombre("Nombre 3").direccion("Direccion 3").numeroEmpleados(10).correoContacto("contacto@cliente3.com").build()
+        List<ClienteClass> clientes = Arrays.asList(
+                ClienteClass.builder().id(1L).nombre("Nombre 1").direccion("Direccion 1").numeroEmpleados(10).correoContacto("contacto@cliente1.com").build(),
+                ClienteClass.builder().id(2L).nombre("Nombre 2").direccion("Direccion 2").numeroEmpleados(10).correoContacto("contacto@cliente2.com").build(),
+                ClienteClass.builder().id(3L).nombre("Nombre 3").direccion("Direccion 3").numeroEmpleados(10).correoContacto("contacto@cliente3.com").build()
         );
 
         given(clienteService.obtenClientes()).willReturn(clientes);
@@ -102,8 +102,8 @@ class ClienteControllerTest {
 
     @Test
     void creaCliente() throws Exception {
-        Cliente clienteParametro = Cliente.builder().nombre("Nombre").direccion("Direccion").numeroEmpleados(10).correoContacto("contacto@cliente.com").build();
-        Cliente clienteRespuesta = Cliente.builder().id(1L).nombre("Nombre").direccion("Direccion").numeroEmpleados(10).correoContacto("contacto@cliente.com").build();
+        ClienteClass clienteParametro = ClienteClass.builder().nombre("Nombre").direccion("Direccion").numeroEmpleados(10).correoContacto("contacto@cliente.com").build();
+        ClienteClass clienteRespuesta = ClienteClass.builder().id(1L).nombre("Nombre").direccion("Direccion").numeroEmpleados(10).correoContacto("contacto@cliente.com").build();
 
         given(clienteService.guardaCliente(clienteParametro)).willReturn(clienteRespuesta);
 
@@ -129,7 +129,7 @@ class ClienteControllerTest {
     @Test
     void actualizaCliente() throws Exception {
 
-        Cliente clienteParametro = Cliente.builder().id(1L).nombre("Nombre").direccion("Direccion").numeroEmpleados(10).correoContacto("contacto@cliente.com").build();
+        ClienteClass clienteParametro = ClienteClass.builder().id(1L).nombre("Nombre").direccion("Direccion").numeroEmpleados(10).correoContacto("contacto@cliente.com").build();
 
         mockMvc.perform(put("/cliente/{clienteId}", 1)
                 .contentType(MediaType.APPLICATION_JSON)

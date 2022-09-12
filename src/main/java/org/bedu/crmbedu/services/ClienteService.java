@@ -2,7 +2,7 @@ package org.bedu.crmbedu.services;
 
 import lombok.RequiredArgsConstructor;
 import org.bedu.crmbedu.controllers.mappers.ClienteMapper;
-import org.bedu.crmbedu.model.Cliente;
+import org.bedu.crmbedu.model.ClienteClass;
 import org.bedu.crmbedu.persistence.ClienteRepository;
 import org.springframework.stereotype.Service;
 
@@ -16,17 +16,17 @@ public class ClienteService {
     private final ClienteRepository repository;
     private final ClienteMapper mapper;
 
-    public Cliente guardaCliente(Cliente cliente) {
+    public ClienteClass guardaCliente(ClienteClass cliente) {
         return mapper.clienteEntityToClienteModel(
                 repository.save(mapper.clienteModelToClienteEntity(cliente))
         );
     }
 
-    public List<Cliente> obtenClientes(){
+    public List<ClienteClass> obtenClientes(){
         return repository.findAll().stream().map(cliente -> mapper.clienteEntityToClienteModel(cliente)).collect(Collectors.toList());
     }
 
-    public Optional<Cliente> obtenCliente(long idCliente) {
+    public Optional<ClienteClass> obtenCliente(long idCliente) {
         return repository.findById(idCliente)
                 .map(cliente -> Optional.of(mapper.clienteEntityToClienteModel(cliente)))
                 .orElse(Optional.empty());
@@ -36,7 +36,7 @@ public class ClienteService {
         repository.deleteById(idcliente);
     }
 
-    public Cliente actualizaCliente(Cliente cliente){
+    public ClienteClass actualizaCliente(ClienteClass cliente){
         return mapper.clienteEntityToClienteModel(
                 repository.save(mapper.clienteModelToClienteEntity(cliente))
         );

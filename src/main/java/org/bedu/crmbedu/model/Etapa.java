@@ -4,11 +4,12 @@ import javax.validation.constraints.Positive;
 import javax.validation.constraints.PositiveOrZero;
 import javax.validation.constraints.Size;
 
+import lombok.Builder;
 import lombok.Data;
-import lombok.RequiredArgsConstructor;
+
 
 @Data
-@RequiredArgsConstructor
+@Builder
 public class Etapa {
 
     @PositiveOrZero
@@ -18,6 +19,16 @@ public class Etapa {
     private String nombre;
     @Positive
     private int orden;
+
+    public Etapa() {
+    }
+
+    public Etapa(@PositiveOrZero long etapaId, @NotEmpty @Size(min = 4, max = 30) String nombre, @Positive int orden) {
+        this.etapaId = etapaId;
+        this.nombre = nombre;
+        this.orden = orden;
+    }
+    
     
     
     

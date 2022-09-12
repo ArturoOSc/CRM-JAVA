@@ -3,7 +3,7 @@ package org.bedu.crmbedu.controllers;
 
 import lombok.RequiredArgsConstructor;
 
-import org.bedu.crmbedu.model.Cliente;
+import org.bedu.crmbedu.model.ClienteClass;
 import org.bedu.crmbedu.services.ClienteService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -23,9 +23,9 @@ public class ClienteController {
     private final ClienteService clienteService;
 
     @GetMapping("/{clienteId}")
-    public ResponseEntity<Cliente> getCliente(@PathVariable Long clienteId) {
+    public ResponseEntity<ClienteClass> getCliente(@PathVariable Long clienteId) {
 
-        Optional<Cliente> clienteDb = clienteService.obtenCliente(clienteId);
+        Optional<ClienteClass> clienteDb = clienteService.obtenCliente(clienteId);
 
         if (clienteDb.isEmpty()) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "El cliente especificado no existe.");
@@ -35,19 +35,19 @@ public class ClienteController {
     }
 
     @GetMapping
-    public ResponseEntity<List<Cliente>> getClientes() {
+    public ResponseEntity<List<ClienteClass>> getClientes() {
         return ResponseEntity.ok(clienteService.obtenClientes());
     }
 
     @PostMapping
-    public ResponseEntity<Void> creaCliente(@Valid @RequestBody Cliente cliente) {
-        Cliente clienteNuevo = clienteService.guardaCliente(cliente);
+    public ResponseEntity<Void> creaCliente(@Valid @RequestBody ClienteClass cliente) {
+        ClienteClass clienteNuevo = clienteService.guardaCliente(cliente);
 
         return ResponseEntity.created(URI.create(String.valueOf(clienteNuevo.getId()))).build();
     }
 
     @PutMapping("/{clienteId}")
-    public ResponseEntity<Void> actualizaCliente(@PathVariable Long clienteId, @RequestBody @Valid Cliente cliente) {
+    public ResponseEntity<Void> actualizaCliente(@PathVariable Long clienteId, @RequestBody @Valid ClienteClass cliente) {
 
         clienteService.actualizaCliente(cliente);
 

@@ -6,7 +6,7 @@ import javax.validation.constraints.*;
 
 @Data
 @Builder
-public class Cliente {
+public class ClienteClass {
 
     @PositiveOrZero(message = "El identificador no puede ser un número negativo")
     private long id;
@@ -25,5 +25,15 @@ public class Cliente {
     @NotBlank(message = "Se debe proporcionar una dirección")
     private String direccion;
 
-    
+    public ClienteClass(long id, String nombre, String correoContacto, int numeroEmpleados, String direccion) {
+        this.id = id;
+        this.nombre = nombre;
+        this.correoContacto = correoContacto;
+        this.numeroEmpleados = numeroEmpleados;
+        this.direccion = direccion;
+    }
+
+    public ClienteClass() {
+
+    }
 }
