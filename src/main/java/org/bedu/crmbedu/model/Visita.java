@@ -28,7 +28,7 @@ public class Visita {
 
     @NotEmpty
     @Size(min = 10)
-    private String Direccion;
+    private String direccion;
 
     @NotEmpty
     @Size(min = 15)
@@ -47,7 +47,7 @@ public class Visita {
         this.id = id;
         this.cliente = cliente;
         this.fechaProgramada = fechaProgramada;
-        Direccion = direccion;
+        this.direccion = direccion;
         this.proposito = proposito;
         this.vendedor = vendedor;
     }
